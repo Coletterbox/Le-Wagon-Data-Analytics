@@ -17,6 +17,7 @@ tips_df['day'].value_counts()
 sns.countplot(data=tips_df, x='day', order=['Thur', 'Fri', 'Sat', 'Sun'])
 
 # other countplots
+# ...fix these
 sns.countplot(data=tips_df, x='sex')
 sns.countplot(data=tips_df, x='smoker')
 sns.countplot(data=tips_df, x='time')
