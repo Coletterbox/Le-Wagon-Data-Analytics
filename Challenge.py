@@ -20,3 +20,12 @@ sns.countplot(data=tips_df, x='day', order=['Thur', 'Fri', 'Sat', 'Sun'])
 sns.countplot(data=tips_df, x='sex')
 sns.countplot(data=tips_df, x='smoker')
 sns.countplot(data=tips_df, x='time')
+
+# plot the distribution of total_bill based on a given category
+sns.catplot(data=tips_df, x='day', y='total_bill', kind="box")
+
+# change the value of x with one of the categorical column of the dataset and the value of kind ("bar", "box", "violin", "boxen")
+sns.catplot(data=tips_df, x='time', y='total_bill', kind="bar")
+
+# change the value of y with one of the numerical column of the dataset
+sns.catplot(data=tips_df, x='day', y='tip', kind="box")
