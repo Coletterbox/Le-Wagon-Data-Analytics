@@ -13,5 +13,10 @@ len(tips_df['day'].unique())
 # find day of the week where there are more bills
 tips_df['day'].value_counts()
 
-# plot this with a Seaborn Countplot
+# plot this with a Seaborn countplot
 sns.countplot(data=tips_df, x='day', order=['Thur', 'Fri', 'Sat', 'Sun'])
+
+# other countplots
+sns.countplot(data=tips_df, x='sex')
+sns.countplot(data=tips_df, x='smoker')
+sns.countplot(data=tips_df, x='time')
