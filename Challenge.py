@@ -30,3 +30,25 @@ sns.catplot(data=tips_df, x='time', y='total_bill', kind="bar")
 
 # change the value of y with one of the numerical column of the dataset
 sns.catplot(data=tips_df, x='day', y='tip', kind="box")
+
+# use seaborn.FacetGrid
+g = sns.FacetGrid(tips_df, col="time")
+g.map(plt.hist, "total_bill")
+
+# add a row="smoker" parameter
+g = sns.FacetGrid(tips_df, col="day", row="smoker")
+g.map(plt.hist, "total_bill")
+
+# do a scatterplot with x being total_bill and y being the tip
+with sns.axes_style(style="whitegrid"):
+    sns.relplot(x="total_bill", y="tip", data=tips_df)
+    
+# another way of looking at this data is to use a seaborn.jointplot
+with sns.axes_style("white"):
+    sns.jointplot(x="total_bill", y="tip", kind="hex", data=tips_df)
+    
+# a very useful tool to identify correlations is the seaborn.pairplot
+sns.pairplot(tips_df, height=2, hue="smoker")
+
+# use seaborn.lmplot to graphically read a linear correlation between two columns
+sns.lmplot(x="total_bill", y="tip", col="smoker", data=tips_df)
